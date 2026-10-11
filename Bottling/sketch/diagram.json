@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "author": "exam",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 120,
+      "left": -10,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": -140,
+      "left": 30,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledFiller",
+      "top": 20,
+      "left": 420,
+      "attrs": { "color": "red", "label": "filler" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rFiller",
+      "top": 20,
+      "left": 360,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledCapper",
+      "top": 80,
+      "left": 420,
+      "attrs": { "color": "orange", "label": "capper" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rCapper",
+      "top": 80,
+      "left": 360,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledLabeler",
+      "top": 140,
+      "left": 420,
+      "attrs": { "color": "blue", "label": "labeler" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rLabeler",
+      "top": 140,
+      "left": 360,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledBeltGo",
+      "top": 200,
+      "left": 420,
+      "attrs": { "color": "green", "label": "belt go" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rBeltGo",
+      "top": 200,
+      "left": 360,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledBeltStop",
+      "top": 260,
+      "left": 420,
+      "attrs": { "color": "yellow", "label": "belt stop" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rBeltStop",
+      "top": 260,
+      "left": 360,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnGreen",
+      "top": 330,
+      "left": 330,
+      "attrs": { "color": "green", "label": "start" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnYellow",
+      "top": 420,
+      "left": 330,
+      "attrs": { "color": "yellow", "label": "skip" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnBlue",
+      "top": 500,
+      "left": 330,
+      "attrs": { "color": "blue", "label": "report" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz",
+      "top": 330,
+      "left": 470,
+      "attrs": { "volume": "0.15", "mode": "smooth" }
+    }
+  ],
+  "connections": [
+    [ "uno:8", "lcd:RS", "green", [ "v-20", "h20" ] ],
+    [ "uno:9", "lcd:E", "green", [ "v-20", "h30" ] ],
+    [ "uno:10", "lcd:D4", "green", [ "v-20", "h40" ] ],
+    [ "uno:11", "lcd:D5", "green", [ "v-20", "h50" ] ],
+    [ "uno:12", "lcd:D6", "green", [ "v-20", "h60" ] ],
+    [ "uno:13", "lcd:D7", "green", [ "v-20", "h70" ] ],
+    [ "uno:5V", "lcd:VDD", "red", [ "v-40", "h120" ] ],
+    [ "uno:5V", "lcd:A", "red", [ "v-40", "h135" ] ],
+    [ "uno:GND.1", "lcd:VSS", "black", [ "v-10", "h120" ] ],
+    [ "uno:GND.1", "lcd:V0", "black", [ "v-10", "h105" ] ],
+    [ "uno:GND.1", "lcd:RW", "black", [ "v-10", "h90" ] ],
+    [ "uno:GND.1", "lcd:K", "black", [ "v-10", "h75" ] ],
+
+    [ "uno:A0", "rFiller:1", "green", [ "h40" ] ],
+    [ "rFiller:2", "ledFiller:A", "green", [ "h20" ] ],
+    [ "ledFiller:C", "uno:GND.2", "black", [ "h-40", "v180" ] ],
+
+    [ "uno:A1", "rCapper:1", "green", [ "h30" ] ],
+    [ "rCapper:2", "ledCapper:A", "green", [ "h20" ] ],
+    [ "ledCapper:C", "uno:GND.2", "black", [ "h-40", "v130" ] ],
+
+    [ "uno:A2", "rLabeler:1", "green", [ "h20" ] ],
+    [ "rLabeler:2", "ledLabeler:A", "green", [ "h20" ] ],
+    [ "ledLabeler:C", "uno:GND.2", "black", [ "h-40", "v80" ] ],
+
+    [ "uno:A3", "rBeltGo:1", "green", [ "h10" ] ],
+    [ "rBeltGo:2", "ledBeltGo:A", "green", [ "h20" ] ],
+    [ "ledBeltGo:C", "uno:GND.2", "black", [ "h-40", "v30" ] ],
+
+    [ "uno:A4", "rBeltStop:1", "green", [ "h0" ] ],
+    [ "rBeltStop:2", "ledBeltStop:A", "green", [ "h20" ] ],
+    [ "ledBeltStop:C", "uno:GND.2", "black", [ "h-40", "v-20" ] ],
+
+    [ "uno:2", "btnGreen:1.l", "green", [ "h30", "v150" ] ],
+    [ "btnGreen:2.l", "uno:GND.2", "black", [ "h-30", "v-40" ] ],
+
+    [ "uno:3", "btnYellow:1.l", "green", [ "h40", "v180" ] ],
+    [ "btnYellow:2.l", "uno:GND.2", "black", [ "h-20", "v-70" ] ],
+
+    [ "uno:4", "btnBlue:1.l", "green", [ "h50", "v210" ] ],
+    [ "btnBlue:2.l", "uno:GND.2", "black", [ "h-10", "v-100" ] ],
+
+    [ "uno:6", "bz:2", "purple", [ "h80", "v190" ] ],
+    [ "bz:1", "uno:GND.2", "black", [ "h-60", "v-120" ] ]
+  ],
+  "serialMonitor": {
+    "display": "always",
+    "newline": "lf"
+  }
+}

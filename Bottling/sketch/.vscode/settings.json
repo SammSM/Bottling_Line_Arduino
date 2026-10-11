@@ -1,0 +1,23 @@
+{
+  "files.exclude": {
+    "build": true
+  },
+  "search.exclude": {
+    "build": true
+  },
+  "files.associations": {
+    "*.ino": "cpp"
+  },
+  "C_Cpp.default.defines": [
+    "ARDUINO=10819",
+    "ARDUINO_AVR_UNO",
+    "F_CPU=16000000L"
+  ],
+  "C_Cpp.default.includePath": [
+    "${workspaceFolder}/**",
+    "${env:LOCALAPPDATA}/Arduino15/packages/arduino/hardware/avr/*/cores/arduino",
+    "${env:LOCALAPPDATA}/Arduino15/packages/arduino/hardware/avr/*/variants/standard",
+    "${env:LOCALAPPDATA}/Arduino15/packages/arduino/tools/avr-gcc/*/avr/include"
+  ],
+  "C_Cpp.default.intelliSenseMode": "gcc-x64"
+}
